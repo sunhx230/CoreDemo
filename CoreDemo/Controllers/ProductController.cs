@@ -58,6 +58,7 @@ namespace CoreDemo.Controllers
             var product = ProductService.Current.Products.FirstOrDefault(x => x.Id == id);
             if (product == null)
             {
+                
                 _logger.LogInformation("找不到id为{0}的产品", id);
                 _mailService.Send("Product Deleted", $"Id为{id}的产品被删除了");
                 return Json(product);
